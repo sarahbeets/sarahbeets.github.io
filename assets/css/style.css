@@ -730,6 +730,29 @@ a.logos__strip:hover { background: #ECECF0; }
 .mini { display: inline-flex; align-items: center; height: 2.2rem; padding: 0 .95rem; border-radius: 999px; background: var(--ink); color: #fff; text-decoration: none; font-size: .72rem; font-weight: 500; text-transform: uppercase; letter-spacing: .02em; transition: background-color .3s, color .3s; }
 .mini--ghost { background: var(--white); color: var(--ink); }
 .mini:hover { background: var(--rust); color: #fff; }
+
+/* ---------- Prise de rendez-vous (Cal.com) ---------- */
+.booking { width: 100%; display: grid; gap: 1.4rem 2rem; align-items: center; grid-template-columns: minmax(0, 1fr) auto; margin-top: clamp(1.5rem, 4vw, 3rem); padding: clamp(1.4rem, 3vw, 2.4rem); border-radius: calc(var(--r-card) * 1.4); text-align: left; position: relative; overflow: hidden; isolation: isolate;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .55), rgba(255, 255, 255, .18));
+  -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, .7);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), inset 0 -1px 0 rgba(168, 67, 9, .08), 0 30px 60px -30px rgba(124, 48, 6, .35), 0 8px 24px -12px rgba(0, 0, 0, .12); }
+.booking::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(40% 90% at 88% 20%, rgba(200, 86, 26, .32), transparent 70%), radial-gradient(35% 80% at 8% 110%, rgba(168, 67, 9, .18), transparent 70%); }
+.booking::after { content: ""; position: absolute; top: 0; bottom: 0; left: -40%; width: 35%; z-index: 0; pointer-events: none;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent); transform: skewX(-18deg); transition: left 1.1s var(--ease); }
+.booking:hover::after { left: 110%; }
+.booking__text { display: grid; gap: .5rem; position: relative; z-index: 1; }
+.booking__label { color: var(--rust); }
+.booking__title { font-size: var(--fs-h3); line-height: 1; letter-spacing: -.03em; color: var(--ink); }
+.booking__time { display: inline-block; vertical-align: middle; margin-left: .4em; padding: .3em .7em; border-radius: 999px; background: rgba(255, 255, 255, .6); border: 1px solid rgba(168, 67, 9, .18); color: var(--rust-deep); font-size: .4em; letter-spacing: .02em; text-transform: uppercase; }
+.booking__note { color: var(--ink-2); font-size: var(--fs-small); max-width: 52ch; }
+.booking__cta { position: relative; z-index: 1; height: 3.2rem; padding: 0 1.6rem; box-shadow: 0 10px 24px -10px rgba(168, 67, 9, .6); }
+.pill--rust { background: var(--rust); color: #fff; }
+.pill--rust:hover { background: var(--ink); color: #fff; }
+.booking + .contact__cards { margin-top: 0; }
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) { .booking { background: linear-gradient(135deg, #FBF4EF, #F4F4F6); } }
+@media (max-width: 700px) { .booking { grid-template-columns: minmax(0, 1fr); } .booking__cta { width: 100%; } }
 .contact__ribbon { position: absolute; inset: -6% 0 -2%; z-index: 0; pointer-events: none; }
 @media (max-width: 760px) { .contact__ribbon { display: none; } }
 
