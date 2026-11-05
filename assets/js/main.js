@@ -290,10 +290,14 @@
         .from(".site-header__start, .site-header__actions", { autoAlpha: 0, y: -16, duration: 1, stagger: 0.08 }, 0.4)
         .from(".hero__down", { autoAlpha: 0, y: 18, duration: 1.2 }, 0.9);
     }
-    var hash = (location.hash || "").slice(1);
+    var hash = (window.__sbHash || location.hash || "").slice(1);
     var target = hash && document.getElementById(hash);
-    if (target && target.classList.contains("sheet")) setTimeout(function () { openSheet(hash, null); }, skipLoader ? 0 : 400);
-    else if (target) setTimeout(function () { scrollToEl(target, true); }, 50);
+    if (target && target.classList.contains("sheet")) setTimeout(function () { openSheet(hash, "replace"); }, skipLoader ? 0 : 400);
+    else {
+      // Le site s'ouvre toujours sur l'accueil, même si l'adresse contient #terrain ou une autre section
+      window.scrollTo(0, 0);
+      if (lenis) lenis.scrollTo(0, { immediate: true });
+    }
   }
   if (skipLoader) {
     if (loader) loader.classList.add("is-gone");
