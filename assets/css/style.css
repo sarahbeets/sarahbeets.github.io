@@ -1300,13 +1300,14 @@ html.has-sheet .site-header { z-index: 50; }
 }
 
 /* ---------- Effet verre givré sur les panneaux de couleur ---------- */
-.svc-card__inner {
-  --glass-hi: rgba(255, 255, 255, .42); --glass-edge: rgba(255, 255, 255, .55);
-  background: radial-gradient(120% 85% at 0% 0%, var(--glass-hi), transparent 55%), radial-gradient(80% 70% at 100% 100%, rgba(255, 255, 255, .16), transparent 60%), color-mix(in srgb, var(--card) 84%, transparent);
-  -webkit-backdrop-filter: blur(26px) saturate(160%); backdrop-filter: blur(26px) saturate(160%);
-  box-shadow: inset 0 0 0 1px var(--glass-edge), inset 0 1px 0 rgba(255, 255, 255, .75), 0 -24px 50px -36px rgba(0, 0, 0, .35), 0 30px 60px -40px rgba(0, 0, 0, .25);
+.svc-card__inner, .svc-card--light .svc-card__inner {
+  color: var(--ink);
+  background: radial-gradient(40% 70% at 92% 12%, rgba(200, 86, 26, .30), transparent 70%), radial-gradient(35% 60% at 4% 108%, rgba(168, 67, 9, .16), transparent 70%), linear-gradient(135deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .72));
+  -webkit-backdrop-filter: blur(22px) saturate(160%); backdrop-filter: blur(22px) saturate(160%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .75), inset 0 1px 0 rgba(255, 255, 255, .95), inset 0 -1px 0 rgba(168, 67, 9, .08), 0 30px 60px -30px rgba(124, 48, 6, .3), 0 8px 24px -12px rgba(0, 0, 0, .1);
 }
-.svc-card--light .svc-card__inner { --glass-hi: rgba(255, 255, 255, .13); --glass-edge: rgba(255, 255, 255, .14); }
+.svc-card--light .svc-card__cta { background: var(--ink); color: #fff; }
+.svc-card--light .svc-card__cta:hover { background: var(--rust); color: #fff; }
 .card__media, .sheet__hero {
   position: relative; isolation: isolate;
   background: radial-gradient(120% 85% at 0% 0%, rgba(255, 255, 255, .4), transparent 55%), radial-gradient(80% 70% at 100% 100%, rgba(255, 255, 255, .14), transparent 60%), color-mix(in srgb, var(--card-bg, var(--bg-2)) 86%, transparent);
